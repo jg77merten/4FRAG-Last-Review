@@ -8,7 +8,7 @@ public class BasketPage extends MainPage {
     private static final String SET_UP_ORDER_XPATH = "//a[text()='%s']";
 
     public boolean isBasketPageHeaderDisplayed() {
-        return isElementDisplayed(By.xpath("//h1[contains(text(), 'Страница не найдена')]"));
+        return isElementDisplayed(By.xpath("//h1[contains(text(), 'Корзина пуста')]"));
     }
 
     public BasketPage initiateOrder(String linkText) {

@@ -4,23 +4,21 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
-
 public class TestListeners implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        LOGGER.info("On Test Start " + result.getName());
+        System.out.println("On Test Start " + result.getName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        LOGGER.info("On Test Success " + result.getName());
+        System.out.println("On Test Success " + result.getName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        LOGGER.warning("On Test Failed " + result.getName());
+        System.out.println("On Test Failed " + result.getName());
 
     }
 

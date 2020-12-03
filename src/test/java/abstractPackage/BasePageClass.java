@@ -11,10 +11,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.DeliveryPage;
-import pages.MainPage;
-
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 public class BasePageClass {
 
@@ -30,7 +26,7 @@ public class BasePageClass {
 
 
     public WebDriver initializeDriver() {
-        System.setProperty("webdriver.chrome.driver", "D:\\Selenium Drivers\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
         driver = new ChromeDriver();
         maximizeWindow();
         return driver;
@@ -65,7 +61,7 @@ public class BasePageClass {
             Wait<WebDriver> wait = new WebDriverWait(getDriver(), DRIVER_WAIT_TIME);
             wait.until(expectedCondition);
         } catch (Exception ex) {
-            LOGGER.warning("Fail waiting for document ready state. Current state:" + getDocumentReadyState());
+            System.out.println("Fail waiting for document ready state. Current state:" + getDocumentReadyState());
         }
     }
 

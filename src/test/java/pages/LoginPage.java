@@ -6,11 +6,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 public class LoginPage extends MainPage {
 
@@ -24,13 +21,11 @@ public class LoginPage extends MainPage {
         Properties properties = new Properties();
         String emailFromPropertyFile = "";
         try {
-            fis = new FileInputStream("./src/test/java/resources/application.properties");
+            fis = new FileInputStream("./src/test/resources/application.properties");
             properties.load(fis);
             emailFromPropertyFile = properties.getProperty(propertyName);
-        } catch (FileNotFoundException e) {
-            LOGGER.warning("Check out file's path");
         } catch (IOException e) {
-            LOGGER.warning(e.getMessage());
+            System.out.println(e.getMessage());
         }
         return emailFromPropertyFile;
     }
